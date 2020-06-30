@@ -1,0 +1,17 @@
+#Java files
+*.class
+
+#Idea
+*.iml
+*.md
+.idea/
+
+#Package Files
+*.war
+*.jar
+target/
+test-output/
+
+#Properties Files
+src/test/resources/key.properties
+
