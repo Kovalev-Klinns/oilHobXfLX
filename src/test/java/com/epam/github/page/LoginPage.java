@@ -1,5 +1,6 @@
 package com.epam.github.page;
 
+import com.epam.github.browser.Browser;
 import com.epam.github.models.User;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,7 +17,9 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//input[@type='submit']")
     private WebElement signInButton;
 
-    public MainPage login(User user) {
+    public MainPage login(User user) throws InterruptedException {
+        Thread.sleep(500);
+        Browser.getInstance().getDriver().navigate().refresh();
         sendKeys(usernameButton, user.getUserName());
         sendKeys(passwordButton, user.getUserPassword());
         clickOnTheVisibleItem(signInButton);

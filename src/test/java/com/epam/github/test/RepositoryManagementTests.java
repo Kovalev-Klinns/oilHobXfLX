@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.is;
 public class RepositoryManagementTests extends BaseTest {
 
     @Test
-    public void oneCanCreateNewRepository() {
+    public void oneCanCreateNewRepository() throws InterruptedException {
         final String randomName = RandomStringUtils.getRandomName();
         User testUser = PropertyReader.getUserWithCredentialsFromProperty();
         String actualRepositoryName = new MainPage()
@@ -32,7 +32,7 @@ public class RepositoryManagementTests extends BaseTest {
     }
 
     @Test
-    public void OneCanCreateCommentToIssue() {
+    public void OneCanCreateCommentToIssue() throws InterruptedException {
         Repository repository = new Repository(RandomStringUtils.getRandomName());
         Issue issue = new Issue(RandomStringUtils.getRandomName());
         ApiService apiService = new ApiService();

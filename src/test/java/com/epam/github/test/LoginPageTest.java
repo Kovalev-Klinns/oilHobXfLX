@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.is;
 public class LoginPageTest extends BaseTest {
 
     @Test
-    public void oneCanLoginGithub() {
+    public void oneCanLoginGithub() throws InterruptedException {
         User testUser = PropertyReader.getUserWithCredentialsFromProperty();
         String loggedInUserName = new MainPage()
                 .clickSignIn()
@@ -27,7 +27,7 @@ public class LoginPageTest extends BaseTest {
     }
 
     @Test
-    public void loginGithubWithIncorrectPassword() {
+    public void loginGithubWithIncorrectPassword() throws InterruptedException {
         User testUser = new User(getTestData(DataFromProperty.TEST_USER_NAME.getKey()),
                 getTestData(DataFromProperty.TEST_USER_PASSWORD.getKey()) + "Qzki!@");
         String actualErrorMessage = new MainPage()
